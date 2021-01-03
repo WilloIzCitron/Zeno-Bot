@@ -9,7 +9,7 @@ exports.run = async (client, message, args) => {
     const embed = new Discord.MessageEmbed()
     .setTitle(result.full_name)
     .setDescription(result.description ? result.description : "No description provided")
-    .addField("General Information", `Fork: ${result.fork === false ? `No` : `Yes, its from ${result.parent.full_name}`}\nHomepage: ${result.homepage ? `[click here](${result.homepage})` : "No homepage provided"}\nLanguage: ${result.language ? result.language}\nDefault Branch: ${result.default_branch}`)
+    .addField("General Information", `Fork: ${result.fork === false ? `No` : `Yes, its from ${result.parent.full_name}`}\nHomepage: ${result.homepage ? `[click here](${result.homepage})` : "No homepage provided"}\nLanguage: ${result.language ? result.language : "no programing language provided"}\nDefault Branch: ${result.default_branch}`)
     .addField("Condition", `Has Download: ${result.has_download === false ? `No` : `Yes`}\nHas Issues: ${result.has_issues === false ? `No` : `Yes`}\nArchived: ${result.archived === false ? `No` : `Yes`}\nDisabled: ${result.disabled === false ? `No` : `Yes`}`)
     .addField("Counts", `Stars: ${result.stargazers_count} stargazers\nWatching: ${result.watchers_count} watchers\nForks: ${result.forks} forks`)
     .setColor("RANDOM")
