@@ -1,0 +1,26 @@
+{
+  "name": "Zeno-Bot",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@replit/database": "^2.0.0",
+    "@sapphire/type": "^1.1.0",
+    "canvas": "^2.6.1",
+    "canvas-multiline-text": "^1.0.3",
+    "dblapi.js": "^2.4.1",
+    "discord-image-generation": "^1.4.1",
+    "discord.js": "^12.5.1",
+    "express": "^4.17.1",
+    "hastebin-gen": "^2.0.5",
+    "node-fetch": "^2.6.1",
+    "node-superfetch": "^0.1.10",
+    "systeminformation": "^4.31.0"
+  }
+}
