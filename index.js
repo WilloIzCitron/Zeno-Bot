@@ -20,7 +20,7 @@ client.on("error", console.error);
 client.login(process.env.TOKEN);
 
 dblclient.on('posted', () => {
-  console.log('Server count posted!');
+  console.log('Server count has been posted!');
 });
 
 dblclient.on('error', e => {
