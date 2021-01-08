@@ -35,4 +35,4 @@ jobs:
           echo Add other actions to build,
           echo test, and deploy your project.
           npm install discord.js
-          node main.js
+          node index.js
