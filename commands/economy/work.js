@@ -12,7 +12,7 @@ exports.run = async (client, message, args) => {
         moneychance = getRndInteger(500, 1000)
         profetion = ["Mindustry-chan artist", "Zeno Bot Developer", "Discord Employee", "Doctor", "Air Force Soldier", "Naval Soldier", "Developer", "Teacher"]
         rdmprofetion = profetion[Math.floor(Math.random() * profetion.length)];
-        message.channel.send(`You worked as ${rdmprofetion}, you got ${moneychance} as work salary`)
+        message.channel.send(`${message.author.username} worked as ${rdmprofetion} and got ${moneychance} as work salary`)
         db.set(`money_${message.author.id}`, currentmoney + moneychance)
     }
 }
