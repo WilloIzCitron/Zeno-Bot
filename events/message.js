@@ -77,6 +77,6 @@ module.exports = async (client, message) => {
   } catch (error) {
     console.log(error.message);
   } finally {
-    console.log(`${a.tag} (${a.id}) using a command: ${cmd}`);
+    console.log(`${a.tag} (${a.id}) using a command: ${cmd} on ${message.guild.name} (${message.guild.id})`);
   }
 };

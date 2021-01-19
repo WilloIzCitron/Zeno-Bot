@@ -12,6 +12,17 @@ const app = express();
 const Discord = require("discord.js");
 require("./bot_modules/replymodule.js")
 
+const webhook = require("webhook-discord");
+ 
+const Hook = new webhook.Webhook(process.env.WEBHOOK);
+ 
+const exitmsg = new webhook.MessageBuilder()
+                .setName("Zeno Bot")
+                .setColor("#FF0000")
+                .setText("Zeno bot has been restarted!");
+
+
+
 client.package = require("./package.json");
 client.nodefetch = require("node-superfetch");
 client.fetch = require("node-fetch");
@@ -25,6 +36,11 @@ dblclient.on('posted', () => {
 
 dblclient.on('error', e => {
  console.log(`Oops! ${e}`);
+});
+
+process.on('exit', (code) => {
+  Hook.send(exitmsg);
+  console.log(code)
 });
 
 app.get("/", (request, response) => {

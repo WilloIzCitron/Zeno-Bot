@@ -3,6 +3,15 @@ const db = require("@replit/database");
 const db_client = new db();
 var currentdate = new Date(); 
 
+const webhook = require("webhook-discord");
+ 
+const Hook = new webhook.Webhook(process.env.WEBHOOK);
+
+const readymsg = new webhook.MessageBuilder()
+                .setName("Zeno Bot")
+                .setColor("#00FF00")
+                .setText("Zeno bot is online!");
+
 const Discord = require("discord.js");
 module.exports = (client, message) => {
   console.log(
@@ -23,4 +32,5 @@ module.exports = (client, message) => {
                 + (currentdate.getMonth()+1)  + "/" 
                 + currentdate.getDay()} | ${client.config.prefix}`
   );
+  Hook.send(readymsg)
 };
