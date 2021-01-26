@@ -18,7 +18,6 @@ const Hook = new webhook.Webhook(process.env.WEBHOOK);
  
 const exitmsg = new webhook.MessageBuilder()
                 .setName("Zeno Bot")
-                .setColor("#FF0000")
                 .setText("Zeno bot has been restarted!");
 
 
@@ -38,9 +37,8 @@ dblclient.on('error', e => {
  console.log(`Oops! ${e}`);
 });
 
-process.on('exit', (code) => {
+process.on('exit', function () {
   Hook.send(exitmsg);
-  console.log(code)
 });
 
 app.get("/", (request, response) => {

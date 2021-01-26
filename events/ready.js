@@ -9,7 +9,6 @@ const Hook = new webhook.Webhook(process.env.WEBHOOK);
 
 const readymsg = new webhook.MessageBuilder()
                 .setName("Zeno Bot")
-                .setColor("#00FF00")
                 .setText("Zeno bot is online!");
 
 const Discord = require("discord.js");
