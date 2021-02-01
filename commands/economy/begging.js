@@ -2,8 +2,10 @@ const Database = require("@replit/database")
 const db = new Database()
 
 exports.run = async (client, message, args) => {
-    if(!db.get(`money_${message.author.id}`))return message.channel.send("You need a account")
-    else{
+    let match = await db.get(`money_${message.author.id}`)
+    let currency = await db.get(`currency_${message.guild.id}`) || "ZenoPoint";
+    if(match > 0 || match == 0)
+    {
         function getRndInteger(min, max) {
             return Math.floor(Math.random() * (max - min)) + min;
         }
@@ -19,10 +21,10 @@ exports.run = async (client, message, args) => {
             message.channel.send(`**${rndPeople}**: ${rndFalseReq}`)
         }
         if(rndBoolGive == true){
-            message.channel.send(`**${rndPeople}**: donates ${moneychance} to ${message.author.username}`)
+            message.channel.send(`**${rndPeople}**: donates ${moneychance} ${currency} to ${message.author.username}`)
             db.set(`money_${message.author.id}`, currentmoney + moneychance)
         }
-    }
+    }else return message.channel.send("You need a account")
   
 }
 
