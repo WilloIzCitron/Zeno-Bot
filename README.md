@@ -23,7 +23,7 @@ WEbHOOK=<webhook discord> //its used for status
 ```json
 {
     "developers": ["<your bot developer its array>"],
-    "prefix": <your prefix>",
+    "prefix": "<your prefix>",
     "Maintenance": false
 }
 ```
