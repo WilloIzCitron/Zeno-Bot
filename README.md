@@ -60,3 +60,6 @@ module.exports = (client, message) => {
 
 };
 ```
+## To Do
+
+want request add a bug report and feature request and i added on [Trello](https://trello.com/b/ZmaGAwz3/zeno-bot)
