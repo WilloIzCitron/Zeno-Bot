@@ -27,3 +27,36 @@ WEbHOOK=<webhook discord> //its used for status
     "Maintenance": false
 }
 ```
+## Additional Content
+for additional content its event or command
+### Command
+```js
+exports.run = async (client, message, args) => {
+//your code here
+  
+}
+
+exports.help = {
+  name: "", //Command Name
+  description: "", // Command Description
+  usage: "",// Usage of this command
+  example: "",// example of command usage
+  api: ""// API Used on this command
+}
+
+exports.conf = {
+  aliases: [],// command aliases
+  cooldown: 3 // command cooldown
+}
+```
+and command for pull request and feature request
+
+### Event
+```js
+var currentdate = new Date(); 
+
+const Discord = require("discord.js");
+module.exports = (client, message) => {
+
+};
+```
