@@ -61,4 +61,4 @@ module.exports = (client, message) => {
 };
 ```
 ## Got Bug? and Want To Request?
-bug report and feature request in Github and i added on [Trello](https://trello.com/b/ZmaGAwz3/zeno-bot)
+feel free to give bug report and/or feature request in Github or [Trello](https://trello.com/b/ZmaGAwz3/zeno-bot)
