@@ -1,31 +1,23 @@
 const Database = require("@replit/database")
 const db = new Database()
+const people = ['Willo', 'Ying', 'Boboiboy', 'Yaya', 'Gopal', 'Adu Du', 'Probe', 'Ejo Jo', 'Fang'];
+const falsereq = ['no', 'eww disgusting', 'get out', 'yes ||but no||', 'begone beggers', 'go to begging jail \\*bonk*'];
 
 exports.run = async (client, message, args) => {
     let match = await db.get(`money_${message.author.id}`)
     let currency = await db.get(`currency_${message.guild.id}`) || "ZenoPoint";
     if(match > 0 || match == 0)
     {
-        function getRndInteger(min, max) {
-            return Math.floor(Math.random() * (max - min)) + min;
-        }
-        let people = ['Willo', 'Ying', 'Boboiboy', 'Yaya', 'Gopal', 'Adu Du', 'Probe', 'Ejo Jo', 'Fang']
-        let rndPeople = people[Math.floor(Math.random() * people.length)];
-        let boolgive = [true, false]
-        let rndBoolGive = boolgive[Math.floor(Math.random() * boolgive.length)];
-        let falsereq = ['no', 'eww disgusting', 'get out', 'yes ||but no||', 'begone beggers', 'go to begging jail \\*bonk*']
-        let rndFalseReq = falsereq[Math.floor(Math.random() * falsereq.length)];
-        let currentmoney = await db.get(`money_${message.author.id}`)
-        let moneychance = getRndInteger(100, 200)
-        if(rndBoolGive == false){
-            message.channel.send(`**${rndPeople}**: ${rndFalseReq}`)
-        }
-        if(rndBoolGive == true){
-            message.channel.send(`**${rndPeople}**: donates ${moneychance} ${currency} to ${message.author.username}`)
-            db.set(`money_${message.author.id}`, currentmoney + moneychance)
-        }
-    }else return message.channel.send("You need a account")
-  
+        const rndPeople = people[Math.floor(Math.random() * people.length)];
+        const rndBoolGive = Math.random() <= 0.5;
+        const rndFalseReq = falsereq[Math.floor(Math.random() * falsereq.length)];
+        const currentmoney = await db.get(`money_${message.author.id}`)
+        const moneychance = Math.floor(Math.random() * 100) + 100;
+        if (!rndBoolGive) return message.channel.send(`**${rndPeople}**: ${rndFalseReq}`)
+        message.channel.send(`**${rndPeople}**: donates ${moneychance} ${currency} to ${message.author.username}`)
+        db.set(`money_${message.author.id}`, currentmoney + moneychance
+    }
+    return message.channel.send("You need a account")
 }
 
 exports.help = {
