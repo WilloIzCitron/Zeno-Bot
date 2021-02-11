@@ -17,8 +17,8 @@ exports.run = async (client, message, args) => {
     .setImage(`https://github-profile-trophy.vercel.app/?username=${result.login}`)
     .setURL(result.html_url)
     .setThumbnail(result.avatar_url)
-    .addField("General Info", `Name: ${result.name ? result.name: "No name provided."}\nType: ${result.type} \nLocation: ${result.location ? result.location : "no location provided"}\nCompany: ${result.company ? result.company : "no company provided"}\nTwitter Username: ${result.twitter_username ? result.twitter_username : "no Twitter Username provided"}`)
-    .addField("Counts", `Public Repos: ${result.public_repos ? result.public_repos : "there is no repos."}\nPublic Gists: ${result.public_gists ? result.public_gist : "there is no gists."}\nFollowers: ${result.followers ? result.followers : "No followers"}\nFollowing: ${result.following ? result.following : "No following"}`);
+    .addField("General Info", `Name: ${result.name || "No name provided."}\nType: ${result.type} \nLocation: ${result.location || "no location provided"}\nCompany: ${result.company || "no company provided"}\nTwitter Username: ${result.twitter_username || "no Twitter Username provided"}`)
+    .addField("Counts", `Public Repos: ${result.public_repos || "there are no repos."}\nPublic Gists: ${result.public_gists || "there are no gists."}\nFollowers: ${result.followers || "No followers"}\nFollowing: ${result.following || "No following"}`);
     message.channel.send(embed)
 }
 
