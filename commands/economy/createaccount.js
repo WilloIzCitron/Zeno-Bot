@@ -13,7 +13,7 @@ exports.run = async (client, message, args) => {
 
 exports.help = {
   name: "createaccount",
-  description: "creates a economy account",
+  description: "creates an economy account",
   usage: "",
   example: "",
   api: ""

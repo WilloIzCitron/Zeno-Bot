@@ -12,7 +12,7 @@ exports.run = async (client, message, args) => {
         const embed = new Discord.MessageEmbed().addField("Money", `${money1} ${currency}`).addField("Bank", `${bank1} ${currency}`);
         return message.channel.send(embed)
     }
-    message.channel.send("You need a account")
+    message.channel.send("You need an account")
 }
 
 exports.help = {

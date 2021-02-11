@@ -17,7 +17,7 @@ exports.run = async (client, message, args) => {
         db.set(`money_${message.author.id}`, currentmoney + moneychance
         return message.channel.send(`**${rndPeople}**: donates ${moneychance} ${currency} to ${message.author.username}`)
     }
-    return message.channel.send("You need a account")
+    return message.channel.send("You need an account")
 }
 
 exports.help = {

@@ -11,7 +11,7 @@ exports.run = async (client, message, args) => {
         db.set(`money_${message.author.id}`, currentmoney + moneychance);
         return message.channel.send(`You got a Daily reward, and now it has ${moneychance} ${currency}`)
     }
-    return message.channel.send("You need a account")
+    return message.channel.send("You need an account")
 }
 
 exports.help = {
