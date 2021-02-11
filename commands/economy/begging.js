@@ -14,7 +14,7 @@ exports.run = async (client, message, args) => {
         const currentmoney = await db.get(`money_${message.author.id}`)
         const moneychance = Math.floor(Math.random() * 100) + 100;
         if (!rndBoolGive) return message.channel.send(`**${rndPeople}**: ${rndFalseReq}`);
-        db.set(`money_${message.author.id}`, currentmoney + moneychance
+        db.set(`money_${message.author.id}`, currentmoney + moneychance)
         return message.channel.send(`**${rndPeople}**: donates ${moneychance} ${currency} to ${message.author.username}`)
     }
     return message.channel.send("You need an account")

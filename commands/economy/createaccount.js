@@ -8,8 +8,9 @@ exports.run = async (client, message, args) => {
       db.set(`bank_${message.author.id}`, 0);
       return message.channel.send("OK. account created, this account is global.")
     }
-    message.channel.send("you already have an account")}
-}
+    message.channel.send("you already have an account")
+    }
+
 
 exports.help = {
   name: "createaccount",
