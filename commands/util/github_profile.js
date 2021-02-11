@@ -6,7 +6,7 @@ const db = new Database()
 exports.run = async (client, message, args) => {
     let linked = await db.get(`github_${message.author.id}`)
     let arg = args[0]
-    if(!arg)return message.reply("dont must be empty")
+    if (!arg) return message.reply("don\'t must be empty")
     const api = () => fetch(`https://api.github.com/users/${arg}`).then(res => res.json());
     const result = await api();
     if (!result.login) return message.channel.send(`Username \`${arg}\` not found`);

@@ -20,8 +20,6 @@ const exitmsg = new webhook.MessageBuilder()
                 .setName("Zeno Bot")
                 .setText("Zeno bot has been restarted!");
 
-
-
 client.package = require("./package.json");
 client.nodefetch = require("node-superfetch");
 client.fetch = require("node-fetch");

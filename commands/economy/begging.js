@@ -6,7 +6,7 @@ const falsereq = ['no', 'eww disgusting', 'get out', 'yes ||but no||', 'begone b
 exports.run = async (client, message, args) => {
     let match = await db.get(`money_${message.author.id}`)
     let currency = await db.get(`currency_${message.guild.id}`) || "ZenoPoint";
-    if(match > 0 || match == 0)
+    if (match > 0 || match == 0)
     {
         const rndPeople = people[Math.floor(Math.random() * people.length)];
         const rndBoolGive = Math.random() <= 0.5;

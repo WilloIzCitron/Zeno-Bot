@@ -1,6 +1,6 @@
 exports.run = async (client, message, args) => {
 message.channel.send("Restarting.....").then( msg => {
-    setTimeout(function(){
+    setTimeout(function() {
              msg.edit("Restarted!, im online back soon:tm:");
           }, 10000);
           }).then(client.destroy()).then(client.login(process.env.TOKEN))

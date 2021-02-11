@@ -3,10 +3,10 @@ const db = new Database()
 
 exports.run = async (client, message, args) => {
  let arg = message.content.split(" ").slice(1).join(" ")
- if(!message.member.hasPermission('MANAGE_GUILD')) return message.channel.send('you missing Manage Guild perm');
- if(!arg)return message.channel.send("You must fill a new currency")
- if(arg.length > 40){ message.channel.send("its too long, the maximum of currency name its 40")
- }else if(arg.length > 40){ message.channel.send("its too long, the maximum of currency name its 40")
+ if (!message.member.hasPermission('MANAGE_GUILD')) return message.channel.send('you were missing Manage Guild perm');
+ if (!arg) return message.channel.send("You must fill a new currency")
+ if (arg.length > 40) { message.channel.send("its too long, the maximum of currency name its 40")
+ }else if (arg.length > 40) { message.channel.send("its too long, the maximum of currency name its 40")
  }else{
      db.set(`currency_${message.guild.id}`, arg)
      message.channel.send(`currency added, now currency on this server is ${arg}`)

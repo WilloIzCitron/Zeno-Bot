@@ -5,10 +5,10 @@ exports.run = async (client, message, args) => {
         return message.reply("Only **Developer** can use this command");
     let user = client.users.cache.get(args.slice(1).join(" "))
     let ctx = message.content.split(" ").slice(2).join(" ")
-    if(!args[1])return message.channel.send("you need a userid")
-    if(!typeof args[1] == Number)return message.channel.send("its must be a number")
-    //if(!user)return message.channel.send("We could find a user") //its need a log only
-    if(!ctx)return message.channel.send("type a context")
+    if (!args[1]) return message.channel.send("you need a userid")
+    if (!typeof args[1] == Number) return message.channel.send("its must be a number")
+    //if (!user) return message.channel.send("We could find a user") //its need a log only
+    if (!ctx) return message.channel.send("type a context")
     let embed = new Discord.MessageEmbed()
         .setTitle("DM Send")
         .setDescription(`you send a DM`)
@@ -18,7 +18,7 @@ exports.run = async (client, message, args) => {
 
 exports.help = {
   name: "dm",
-  description: "dm a specific user **DONT ABUSE IT**",
+  description: "dm a specific user **don\'t ABUSE IT**",
   usage: "dm <userid> <context>",
   example: "dm 123456 hi",
   api: ""

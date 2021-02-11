@@ -4,7 +4,7 @@ const Discord = require("discord.js")
 
 exports.run = async (client, message, args) => {
     let match = await db.get(`money_${message.author.id}`)
-    if(match > 0 || match == 0)
+    if (match > 0 || match == 0)
     {
         let currency = await db.get(`currency_${message.guild.id}`) || "ZenoPoint";
         let money1 = await db.get(`money_${message.author.id}`)

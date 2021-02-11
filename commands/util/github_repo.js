@@ -2,7 +2,7 @@ const fetch = require('node-fetch')
 const Discord = require("discord.js")
 
 exports.run = async (client, message, args) => {
-    if (!args[0]) return message.reply('Github Repo dont must be empty');
+    if (!args[0]) return message.reply('Github Repo don\'t must be empty');
     const api = () => fetch(`https://api.github.com/repos/${args[0]}`).then(res => res.json());
     const result = await api();
     if (!result.full_name) return message.channel.send(`repo \`${args[0]}\` not found`);
