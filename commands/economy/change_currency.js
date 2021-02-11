@@ -2,15 +2,12 @@ const Database = require("@replit/database")
 const db = new Database()
 
 exports.run = async (client, message, args) => {
- let arg = message.content.split(" ").slice(1).join(" ")
- if (!message.member.hasPermission('MANAGE_GUILD')) return message.channel.send('you were missing Manage Guild perm');
- if (!arg) return message.channel.send("You must fill a new currency")
- if (arg.length > 40) { message.channel.send("its too long, the maximum of currency name is 40")
- }else if (arg.length > 40) { message.channel.send("its too long, the maximum of currency name is 40")
- }else{
-     db.set(`currency_${message.guild.id}`, arg)
-     message.channel.send(`currency added, now currency on this server is ${arg}`)
- }
+  let arg = message.content.split(" ").slice(1).join(" ")
+  if (!message.member.hasPermission('MANAGE_GUILD')) return message.channel.send('you were missing Manage Guild perm');
+  else if (!arg) return message.channel.send("You must fill a new currency")
+  else if (arg.length > 40) return message.channel.send("its too long, the maximum of currency name is 40")
+  db.set(`currency_${message.guild.id}`, arg)
+  message.channel.send(`currency added, now currency on this server is ${arg}`)
 }
 
 exports.help = {
