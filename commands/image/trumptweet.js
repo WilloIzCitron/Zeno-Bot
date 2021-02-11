@@ -1,10 +1,8 @@
 const Discord = require("discord.js")
 
 exports.run = async (client, message, args) => {
-  text = message.content.split(" ").slice(1).join(" ")
-  if(!text)return message.channel.send("you must fill a text")
-  api = `https://nekobot.xyz/api/imagegen?type=trumptweet&text=${text}&raw=1`
-  const attachment = new Discord.MessageAttachment(api, "trumptweet.png");
+  text = message.content.split(" ").slice(1).join(" ") || "sample text";
+  const attachment = new Discord.MessageAttachment(`https://nekobot.xyz/api/imagegen?type=trumptweet&text=${encodeURIComponent(text)}&raw=1`, "trumptweet.png");
   return message.channel.send(attachment);
   
 }
