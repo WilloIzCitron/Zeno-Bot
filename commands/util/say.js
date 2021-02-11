@@ -1,10 +1,10 @@
 
 exports.run = async (client, message, args) => {
-text = message.content.split(" ").slice(1).join(" ")
-if(!text)return message.channel.send("you must add a arg")
-if(text.includes("--reply")){
-message.inlineReply(text.replace("--reply", ""))
-}else{message.channel.send(text)}
+  const text = message.content.split(" ").slice(1).join(" ") || "please add a text";
+  if (text.includes("--reply")) {
+    return message.inlineReply(text.replace(/\-\-reply/g, ""))
+  }
+  return message.channel.send(text);
 }
 
 exports.help = {

@@ -3,17 +3,12 @@ const Discord = require("discord.js"),
 
 const db_client = new db();
 module.exports = async (client, message) => {
-  if (message.author.bot || message.author === client.user) return;
-
-  if (message.channel.type === "dm") return;
-
+  if (message.author.bot || message.channel.type === "dm" || !message.content.startsWith(prefix)) return;
   let prefix = client.config.prefix;
-  let ad = `<@784224401545101344>`;
-  if (message.content === "zeno prefix" || message.content === ad)
+  if (message.content === "zeno prefix" || message.content === `<@784224401545101344>`)
     return message.channel.send(
-      `Hello, **${message.author.tag}**, My prefix on this server is \`${prefix}\``
+      `Hello, **${message.author.tag}**, My prefix on this server is \`${client.config.prefix}\``
     );
-  if (!message.content.startsWith(prefix)) return;
 
   if (
     client.config.Maintenance &&
@@ -27,7 +22,7 @@ module.exports = async (client, message) => {
     });
 
   let args = message.content
-    .slice(prefix.length)
+    .slice(client.config.prefix.length)
     .trim()
     .split(/ +/g);
   let msg = message.content.toLowerCase();
