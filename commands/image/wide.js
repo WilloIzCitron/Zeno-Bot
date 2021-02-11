@@ -1,10 +1,10 @@
 const Discord = require("discord.js")
+const Canvas = require("canvas");
 
 exports.run = async (client, message, args) => {
     let target = message.mentions.users.first() || message.author;
     let levels = args[1] || 360;
-    if(levels < 360)return message.channel.send('its must be a greater than 360')
-    const Canvas = require("canvas");
+    if (levels < 360) return message.channel.send('it must be greater than 360');
     const canvas = Canvas.createCanvas(Number(levels), 240)
     const ctx = canvas.getContext("2d");
     const background = await Canvas.loadImage(target.displayAvatarURL({ format: "png" }))
