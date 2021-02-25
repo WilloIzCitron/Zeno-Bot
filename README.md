@@ -1,7 +1,7 @@
 # Zeno bot
 <center>
  
-[![Discord Bots](https://top.gg/api/widget/status/784224401545101344.svg)](https://top.gg/bot/784224401545101344)[![Discord Bots](https://top.gg/api/widget/servers/784224401545101344.svg)](https://top.gg/bot/784224401545101344) [![Discord Bots](https://top.gg/api/widget/owner/784224401545101344.svg)](https://top.gg/bot/784224401545101344) [![Discord Bots](https://top.gg/api/widget/upvotes/784224401545101344.svg)](https://top.gg/bot/784224401545101344)
+[![Discord Bots](https://top.gg/api/widget/status/784224401545101344.svg)](https://top.gg/bot/784224401545101344)[![Discord Bots](https://top.gg/api/widget/servers/784224401545101344.svg)](https://top.gg/bot/784224401545101344) [![Discord Bots](https://top.gg/api/widget/owner/784224401545101344.svg)](https://top.gg/bot/784224401545101344) [![Discord Bots](https://top.gg/api/widget/upvotes/784224401545101344.svg)](https://top.gg/bot/)
 
 <img class="fit-picture"
      src="https://cdn.discordapp.com/avatars/784224401545101344/e53e85d57afba36e309b5ec3e94434e9.png?size=1024"
