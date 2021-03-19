@@ -1,12 +1,10 @@
 # Zeno bot
-<center>
  
 [![Discord Bots](https://top.gg/api/widget/status/784224401545101344.svg)](https://top.gg/bot/784224401545101344)[![Discord Bots](https://top.gg/api/widget/servers/784224401545101344.svg)](https://top.gg/bot/784224401545101344) [![Discord Bots](https://top.gg/api/widget/owner/784224401545101344.svg)](https://top.gg/bot/784224401545101344) [![Discord Bots](https://top.gg/api/widget/upvotes/784224401545101344.svg)](https://top.gg/bot/)
 
 <img class="fit-picture"
      src="https://cdn.discordapp.com/avatars/784224401545101344/e53e85d57afba36e309b5ec3e94434e9.png?size=1024"
      alt="Zeno bot" width="250" height="250">
-</center>
 
 ## About
 
@@ -27,6 +25,8 @@ WEbHOOK=<webhook discord> //its used for status
     "Maintenance": false
 }
 ```
+---
+
 ## Additional Content
 for additional content its event or command
 ### Command
@@ -60,5 +60,7 @@ module.exports = (client, message) => {
 
 };
 ```
+---
+
 ## Got Bug? and Want To Request?
 feel free to give bug report and/or feature request in Github or [Trello](https://trello.com/b/ZmaGAwz3/zeno-bot)
