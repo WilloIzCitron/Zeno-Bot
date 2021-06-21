@@ -16,7 +16,7 @@ exports.run = async (client, message, args) => {
     if (!code) return message.channel.send("Please provide a code.");
     let evaled;
 
-    if (code.includes(`TOKEN`, `DBLTOKEN`) || code.includes("process.env")) {
+    if (code.includes(`TOKEN`, `DBLTOKEN`, 'token', 'GOOGLE_API_KEY', 'WEBHOOK') || code.includes("process.env") || code.includes("client.token")) {
       evaled = "oh no";
     } else {
       evaled = eval(code);
@@ -33,8 +33,7 @@ exports.run = async (client, message, args) => {
         .setColor(0x7289da);
     } else {
       embed.addField("Output", "```js\n" + output + "```").setColor(0x7289da);
-      type = new Type(output);
-      embed.setFooter(`Return Type: ${type.toString()} \n Return time: ${Date.now() - mu}mμ`)
+      embed.setFooter(`Return Type: ${typeof output} \n Return time: ${Date.now() - mu}mμ`)
     }
 
     message.channel.send(embed);

@@ -11,6 +11,7 @@ const path = require("path");
 const app = express();
 const Discord = require("discord.js");
 require("./bot_modules/replymodule.js")
+require('discord-buttons')(client);
 
 const webhook = require("webhook-discord");
  

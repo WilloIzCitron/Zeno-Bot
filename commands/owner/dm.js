@@ -3,7 +3,7 @@ const Discord = require("discord.js")
 exports.run = async (client, message, args) => {
     if (!client.config.developers.includes(message.author.id))
         return message.reply("Only **Developer** can use this command");
-    let user = client.users.cache.get(args.slice(1).join(" "))
+    let user = client.users.cache.filter(user => user.id == args[0])
     let ctx = message.content.split(" ").slice(2).join(" ")
     if (!args[1]) return message.channel.send("you need a user id")
     if (!typeof args[1] == Number) return message.channel.send("it must be a number")
@@ -11,8 +11,9 @@ exports.run = async (client, message, args) => {
     if (!ctx) return message.channel.send("type a context")
     let embed = new Discord.MessageEmbed()
         .setTitle("DM Sent")
-        .setDescription(`you sent a DM`)
+        .setDescription(`you sent a DM to ${user.username}(${user.id})`)
     message.channel.send(embed)
+    console.log(args[0])
     user.send(ctx)
 }
 

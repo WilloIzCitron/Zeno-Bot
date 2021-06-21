@@ -1,6 +1,12 @@
 const Discord = require("discord.js");
+const { MessageButton, MessageActionRow } = require('discord-buttons');
 
 exports.run = async (client, message, args) => {
+  let button = new MessageButton()
+    .setLabel("Vote Zeno Bot on Top.gg")
+    .setStyle("url")
+    .setURL("https://top.gg/bot/784224401545101344/vote");
+
   let prefix = client.config.prefix;
 
   if (!args[0]) {
@@ -18,7 +24,10 @@ exports.run = async (client, message, args) => {
     for (const mod of module)
       embed.addField(`${mod.name}`, mod.cmds.map(x => `\`${x}\``).join(" , "));
 
-    return message.channel.send(embed);
+    return message.channel.send({
+        component: button,
+        embed: embed
+        });
   }
   let cmd = args[0]
   if (
