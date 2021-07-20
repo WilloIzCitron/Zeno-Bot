@@ -18,6 +18,7 @@
     "discord-buttons": "^3.2.1",
     "discord-image-generation": "^1.4.1",
     "discord.js": "^12.5.1",
+    "eslint": "^7.31.0",
     "express": "^4.17.1",
     "google-images": "^2.1.0",
     "hastebin-gen": "^2.0.5",
