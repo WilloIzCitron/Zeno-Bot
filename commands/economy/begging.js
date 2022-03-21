@@ -1,6 +1,6 @@
 const Database = require("@replit/database")
 const db = new Database()
-const people = ['Willo', 'Ying', 'Boboiboy', 'Yaya', 'Gopal', 'Adu Du', 'Probe', 'Ejo Jo', 'Fang'];
+const people = ['Willo', 'Ying', 'Boboiboy', 'Yaya', 'Gopal', 'Adu Du', 'Probe', 'Ejo Jo', 'Fang', 'Imposter', 'Mythia Batford', 'Hans'];
 const falsereq = ['no', 'eww disgusting', 'get out', 'yes ||but no||', 'begone beggers', 'go to begging jail \\*bonk*'];
 
 exports.run = async (client, message, args) => {

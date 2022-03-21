@@ -18,7 +18,7 @@ module.exports = (client, message) => {
   client.user.setActivity(
     client.config.Maintenance ? "MAINTENANCE.." : `Zeno Base | ${+ currentdate.getFullYear() + "/"
                 + (currentdate.getMonth()+1)  + "/" 
-                + currentdate.getDay()} | ${client.config.prefix}`
+                + currentdate.getDate()} | ${client.config.prefix}`
   );
   Hook.send(readymsg)
 };

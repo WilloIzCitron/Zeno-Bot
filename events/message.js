@@ -4,8 +4,8 @@ const Discord = require("discord.js"),
 const db_client = new db();
 module.exports = async (client, message) => {
   let prefix = client.config.prefix;
-  if (message.author.bot || message.channel.type === "dm" || !message.content.startsWith(prefix)) return;
-  if (message.content === "zeno prefix" || message.content === `<@784224401545101344>`)
+  if (message.author.bot || message.channel.type === "dm" || !message.content.toLowerCase().startsWith(prefix)) return;
+  if (message.content.toLowerCase() === "zeno prefix" || message.content === `<@784224401545101344>`)
     return message.channel.send(
       `Hello, **${message.author.tag}**, My prefix on this server is \`${client.config.prefix}\``
     );
