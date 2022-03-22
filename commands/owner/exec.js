@@ -32,7 +32,7 @@ exports.run = (client, msg, args) => {
         "```bash\n# Command executed successfully but produced no output.```"
       );
     }
-    return msg.channel.send(emb.setFooter(`⏱️ ${Date.now() - mu}mμ`));
+    return msg.channel.send({ embeds: [emb.setFooter(`⏱️ ${Date.now() - mu}mμ`)] });
   });
 };
 

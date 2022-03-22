@@ -19,7 +19,7 @@ exports.run = async (client, message, args) => {
     .setThumbnail(result.avatar_url)
     .addField("General Info", `Name: ${result.name || "No name provided."}\nType: ${result.type} \nLocation: ${result.location || "no location provided"}\nCompany: ${result.company || "no company provided"}\nTwitter Username: ${result.twitter_username || "no Twitter Username provided"}`)
     .addField("Counts", `Public Repos: ${result.public_repos || "there are no repos."}\nPublic Gists: ${result.public_gists || "there are no gists."}\nFollowers: ${result.followers || "No followers"}\nFollowing: ${result.following || "No following"}`);
-    message.channel.send(embed)
+    message.channel.send({ embeds: [embed] })
 }
 
 exports.help = {

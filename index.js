@@ -2,7 +2,7 @@ const bot_modules = require("./bot_modules/bot_modules.js");
 const DBL = require("dblapi.js");
 const Database = require("@replit/database")
 const db = new Database()
-const client = new bot_modules({ fetchAllMembers: true });
+const client = new bot_modules({ fetchAllMembers: true, partials: ["CHANNEL"], intents: ["GUILDS", "GUILD_MESSAGES"]});
 const dblclient = new DBL(process.env.DBLTOKEN, client);
 require("./bot_modules/modules.js")(client);
 require("./bot_modules/events.js")(client);
@@ -10,8 +10,6 @@ const express = require("express");
 const path = require("path");
 const app = express();
 const Discord = require("discord.js");
-require("./bot_modules/replymodule.js")
-require('discord-buttons')(client);
 
 const webhook = require("webhook-discord");
  

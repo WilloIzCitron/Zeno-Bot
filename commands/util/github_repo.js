@@ -15,7 +15,7 @@ exports.run = async (client, message, args) => {
     .addField("Counts", `Stars: ${result.stargazers_count} stargazers\nWatching: ${result.watchers_count} watchers\nForks: ${result.forks} forks`)
     .setColor("RANDOM")
     .setThumbnail(result.owner.avatar_url);
-    message.channel.send(embed)
+    message.channel.send({ embeds: [embed] })
 }
 
 exports.help = {

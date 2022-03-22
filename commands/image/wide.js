@@ -12,7 +12,7 @@ exports.run = async (client, message, args) => {
     ctx.strokeRect(0, 0, canvas.width, canvas.height);
 
     const a = new Discord.MessageAttachment(canvas.toBuffer(), `Wide ${target.username}.png`)
-    message.channel.send(a)
+    message.channel.send({files: [a]})
 }
 
 exports.help = {

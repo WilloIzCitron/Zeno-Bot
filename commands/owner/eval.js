@@ -36,7 +36,7 @@ exports.run = async (client, message, args) => {
       embed.setFooter(`Return Type: ${typeof output} \n Return time: ${Date.now() - mu}mμ`)
     }
 
-    message.channel.send(embed);
+    message.channel.send({ embeds: [embed] });
   } catch (error) {
     let err = clean(error);
     if (err.length > 1024) {
@@ -50,7 +50,7 @@ exports.run = async (client, message, args) => {
     embed.setFooter(`Error Type: ${type.toString()}`)
     }
 
-    message.channel.send(embed);
+    message.channel.send({ embeds: [embed] });
   }
 };
 

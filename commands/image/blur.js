@@ -3,9 +3,10 @@ const Discord = require("discord.js")
 
 exports.run = async (client, message, args) => {
     let target = message.mentions.users.first() || message.author;
-    let img = await new DIG.Blur().getImage(target.avatarURL({ dynamic: false, format: 'png' }));
+    let img = await new DIG.Blur().getImage(target.displayAvatarURL({ dynamic: true, format: 'png' }));
     let attach = new Discord.MessageAttachment(img, "blured.png");;
-    message.channel.send(attach)
+    console.log(attach.length)
+    message.channel.send({files: [attach]})
 }
 
 exports.help = {

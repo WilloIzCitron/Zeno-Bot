@@ -2,7 +2,7 @@
 exports.run = async (client, message, args) => {
   const text = message.content.split(" ").slice(1).join(" ") || "please add a text";
   if (text.includes("--reply")) {
-    return message.inlineReply(text.replace(/\-\-reply/g, ""))
+    return message.reply(text.replace(/\-\-reply/g, ""))
   }
   return message.channel.send(text);
 }

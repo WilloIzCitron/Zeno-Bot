@@ -1,19 +1,22 @@
 const Discord = require("discord.js");
-const { MessageButton, MessageActionRow } = require('discord-buttons');
 
 exports.run = async (client, message, args) => {
-  let button = new MessageButton()
-    .setLabel("Vote Zeno Bot on Top.gg")
-    .setStyle("url")
-    .setURL("https://top.gg/bot/784224401545101344/vote");
+  let button = new Discord.MessageActionRow()
+      .addComponents(
+        new Discord.MessageButton()
+        .setLabel("Vote Zeno Bot on Top.gg")
+        .setStyle("LINK")
+        .setURL("https://top.gg/bot/784224401545101344/vote"),
+          )
+
 
   let prefix = client.config.prefix;
 
   if (!args[0]) {
-    let module = client.helps.array();
+    let module = client.helps.values();
 
     if (!client.config.developers.includes(message.author.id))
-      module = client.helps.array().filter(x => !x.hide);
+      module = client.helps.values().filter(x => !x.hide);
     const embed = new Discord.MessageEmbed()
       .setColor(0x1d1d1d)
       .setTimestamp(new Date())
@@ -25,8 +28,8 @@ exports.run = async (client, message, args) => {
       embed.addField(`${mod.name}`, mod.cmds.map(x => `\`${x}\``).join(" , "));
 
     return message.channel.send({
-        component: button,
-        embed: embed
+        components: [button],
+        embeds: [embed]
         });
   }
   let cmd = args[0]
@@ -55,7 +58,7 @@ exports.run = async (client, message, args) => {
       .addField("Usage", usage, true)
       .addField("Example Usage", example, true)
       .addField("API", usingapi, true)
-    return message.channel.send(embed);
+    return message.channel.send({ embeds: [embed] });
   }
   return message.channel.send("I can't find the command you're looking for, perhaps you did a typo?");
 };

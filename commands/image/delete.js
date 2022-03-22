@@ -3,9 +3,9 @@ const Discord = require("discord.js")
 
 exports.run = async (client, message, args) => {
     let target = message.mentions.users.first() || message.author;
-    let img = await new DIG.Delete().getImage(target.avatarURL({ dynamic: false, format: 'png' }));
+    let img = await new DIG.Delete().getImage(target.displayAvatarURL({ dynamic: false, format: 'png' }));
     let attach = new Discord.MessageAttachment(img, "delete.png");;
-    message.channel.send(attach)
+    message.channel.send({files: [attach]})
 }
 
 exports.help = {
