@@ -11,14 +11,15 @@
   "license": "ISC",
   "dependencies": {
     "@replit/database": "^2.0.0",
-    "@sapphire/type": "^1.1.0",
+    "@sapphire/type": "^2.2.0",
+    "axios": "^0.26.1",
     "canvas": "^2.9.1",
     "canvas-multiline-text": "^1.0.3",
     "dblapi.js": "^2.4.1",
     "discord-image-generation": "^1.4.12",
     "discord.js": "^13.6.0",
     "eslint": "^7.31.0",
-    "express": "^4.17.1",
+    "express": "^4.17.3",
     "gm": "^1.23.1",
     "google-images": "^2.1.0",
     "hastebin-gen": "^2.0.5",
@@ -26,7 +27,7 @@
     "node-superfetch": "^0.1.10",
     "steam-store": "^0.4.1",
     "systeminformation": "^4.31.0",
-    "webhook-discord": "^3.7.7"
+    "webhook-discord": "^3.7.8"
   },
   "devDependencies": {
     "node": "^17.7.1"

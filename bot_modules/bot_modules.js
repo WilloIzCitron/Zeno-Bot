@@ -1,4 +1,4 @@
-const {Client, Collection} = require("discord.js");
+const {Client, Collection, Intents} = require("discord.js");
 
 module.exports = class undefined extends Client {
   constructor(options) {

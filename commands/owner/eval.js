@@ -28,8 +28,8 @@ exports.run = async (client, message, args) => {
     let output = clean(evaled);
         mu = Date.now();
     if (output.length > 1024) {
-      const { body } = await post("https://hastebin.com/documents").send(output);
-      embed.addField("Output", `https://hastebin.com/${body.key}.js`)
+      const { body } = await post("https://www.toptal.com/developers/hastebin/documents/").send(output);
+      embed.addField("Output", `https://www.toptal.com/developers/hastebin/${body.key}.js`)
         .setColor(0x7289da);
     } else {
       embed.addField("Output", "```js\n" + output + "```").setColor(0x7289da);
@@ -40,9 +40,9 @@ exports.run = async (client, message, args) => {
   } catch (error) {
     let err = clean(error);
     if (err.length > 1024) {
-      const { body } = await post("https://hastebin.com/documents").send(err);
+      const { body } = await post("https://www.toptal.com/developers/hastebin/documents/").send(err);
       embed
-        .addField("Output", `https://hastebin.com/${body.key}.js`)
+        .addField("Output", `https://www.toptal.com/developers/hastebin/${body.key}.js`)
         .setColor("RED");
     } else {
       embed.addField("Output", "```js\n" + err + "```").setColor("RED");
