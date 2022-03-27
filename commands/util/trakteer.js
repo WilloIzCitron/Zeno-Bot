@@ -4,19 +4,31 @@ const Discord = require("discord.js")
 
 
 exports.run = async (client, message, args) => {
+    const loadingEmbed = new Discord.MessageEmbed()
+    .setTitle("Loading...")
+
+    const errorEmbed = new Discord.MessageEmbed()
+    .setTitle("404 Not Found")
+
+    const APIErrorEmbed = new Discord.MessageEmbed()
+    .setTitle("API was detected a error")
+    
     const query = args[0]
 
+    const msg = await message.channel.send({embeds: [loadingEmbed]})
     const api = () => fetch(`https://api.mioun.xyz/api/trakteer?name=${query}`).then(res =>res.json())
-    const res = await api();
-    if(!res.name)return message.channel.send("Not Found")
+    const body = await api();
+
+    
+    if(!body.name)return msg.edit({embeds: [errorEmbed]})
       let button = new Discord.MessageActionRow()
       .addComponents(
         new Discord.MessageButton()
         .setLabel("Subscribe him/her")
         .setStyle("LINK")
-        .setURL(res.links.youtube),
-          )
-       .addComponents(
+        .setURL(body.links.youtube),
+        )
+        .addComponents(
            new Discord.MessageButton()
             .setLabel("Please Donate him/her")
             .setStyle("LINK")
@@ -24,15 +36,16 @@ exports.run = async (client, message, args) => {
        )
     
         const resultEmbed = new Discord.MessageEmbed()
+            .setTimestamp()
             .setTitle("Trakteer")
-            .setThumbnail(res.avatar)
+            .setThumbnail(body.avatar)
             .setColor(15548997)
-            .addField("Name", res.name)
-            .addField("Username", res.username)
-            .addField("Occupation", res.occupation)
-            .addField("Status", res.status)
-            .addField("Goal", `Title: ${res.goals.title}\nDescription:${res.goals.description}\nTarget:${res.goals.target}\nReached:${res.goals.reached}`)
-        message.channel.send({components: [button], embeds: [resultEmbed]})
+            .addField("Name", body.name)
+            .addField("Username", body.username)
+            .addField("Occupation", body.occupation)
+            .addField("Status", body.status)
+            .addField("Goal", `Title: ${body.goals.title}\nDescription:${body.goals.description}\nTarget:${body.goals.target ? body.goals.target : "Not Included"}\nReached:${body.goals.reached ? body.goals.reached : "Not Included"}`)
+        msg.edit({components: [button], embeds: [resultEmbed]})
   
 }
 
