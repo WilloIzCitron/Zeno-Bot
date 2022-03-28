@@ -5,7 +5,8 @@ const db_client = new db();
 module.exports = async (client, message) => {
   let prefix = client.config.prefix;
   if (message.author.bot || message.channel.type === "dm" || !message.content.toLowerCase().startsWith(prefix)) return;
-  if (message.content.toLowerCase() === "zeno prefix" || message.content === `<@784224401545101344>`)
+  if (message.content.includes("@here") || message.content.includes("@everyone") || message.type == "REPLY") return;
+  if (message.content.toLowerCase().startsWith("zeno prefix") || message.mentions.has(client.user.id))
     return message.channel.send(
       `Hello, **${message.author.tag}**, My prefix on this server is \`${client.config.prefix}\``
     );
