@@ -1,18 +1,16 @@
-const Database = require("@replit/database")
-const db = new Database()
+const Database = require('discord-mongo-currency')
 const Discord = require("discord.js")
 
 exports.run = async (client, message, args) => {
-    let match = await db.get(`money_${message.author.id}`)
-    if (match > 0 || match == 0)
-    {
-        let currency = await db.get(`currency_${message.guild.id}`) || "ZenoPoint";
-        let money1 = await db.get(`money_${message.author.id}`)
-        let bank1 = await db.get(`bank_${message.author.id}`)
-        const embed = new Discord.MessageEmbed().addField("Money", `${money1} ${currency}`).addField("Bank", `${bank1} ${currency}`);
+    const member = message.mentions.members.first() || message.member;
+ 
+    const match = await Database.findUser(member.id, message.guild.id); // Get the user from the database.
+        let currency ="ZenoPoint";
+        let money = match.coinsInWallet
+        let bank = match.coinsInBank
+        let emptybank = match.bankSpace
+        const embed = new Discord.MessageEmbed().addField("Money", `${money} ${currency}`).addField("Bank", `${bank}/${emptybank}`);
         return message.channel.send({embeds: [embed]})
-    }
-    message.channel.send("You need an account")
 }
 
 exports.help = {

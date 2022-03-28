@@ -2,8 +2,8 @@ const si = require('systeminformation');
 const Discord = require('discord.js')
 
 exports.run = async (client, message, args) => {
-function bytesToMegaBytes(bytes) { 
-  return (bytes / 1048576).toFixed(2); 
+function bytesTogGigaBytes(bytes) { 
+  const gigs = (bytes / 1073741824).toFixed(2); 
 }
     
  const cpu = await si.cpu();
@@ -19,7 +19,7 @@ function bytesToMegaBytes(bytes) {
     .addField("CPU", `${cpu.manufacturer} ${cpu.brand} ${cpu.speed}GHz\n`)
     .addField("Cores", `${cpu.cores} (${cpu.physicalCores} Physical)\n`)
     .addField("OS", `${os.distro} ${os.codename} (${os.platform})\n`)
-    .addField("RAM", `Total: ${bytesToMegaBytes(totalRam.total)} MB\nFree: ${bytesToMegaBytes(freeRam.free)} MB\nUsed: ${bytesToMegaBytes(usedRam.used)} MB`)
+    .addField("RAM", `Total: ${bytesToGigabytes(totalRam.total)} GB\nFree: ${bytesToGigabytes(freeRam.free)} GB\nUsed: ${bytesToGigabytes(usedRam.used)} GB`)
     .addField("Kernel", `${os.kernel} ${os.arch}\n`)
     .addField("Bot", +client.commands.size +" commands \n" +client.users.cache.size +" users | \n" +client.guilds.cache.size +" guilds | \n" +client.channels.cache.size +" channels")
     .addField("Version", `Node: v${versions.node}\n Discord.JS: v${Discord.version}`)

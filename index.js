@@ -1,11 +1,13 @@
 const bot_modules = require("./bot_modules/bot_modules.js");
+require("dotenv").config({ path: '.env' })
 const DBL = require("dblapi.js");
-const Database = require("@replit/database")
-const db = new Database()
 const client = new bot_modules({ fetchAllMembers: true, partials: ["CHANNEL"], intents: ["GUILDS", "GUILD_MESSAGES"] });
 const dblclient = new DBL(process.env.DBLTOKEN, client);
 require("./bot_modules/modules.js")(client);
 require("./bot_modules/events.js")(client);
+const mongoCurrency = require('discord-mongo-currency');
+ 
+mongoCurrency.connect(`mongodb+srv://admin:${process.env.MONGODB_URI_PASS}@main.nohln.mongodb.net/myFirstDatabase?retryWrites=true&w=majority`);
 const express = require("express");
 const path = require("path");
 const app = express();
@@ -18,6 +20,7 @@ client.fetch = require("node-fetch");
 client.on("warn", console.warn);
 client.on("error", console.error);
 client.login(process.env.TOKEN);
+
 
 dblclient.on('posted', () => {
     console.log('Server count posted!');
