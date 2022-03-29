@@ -2,8 +2,14 @@ const si = require('systeminformation');
 const Discord = require('discord.js')
 
 exports.run = async (client, message, args) => {
-function bytesTogGigaBytes(bytes) { 
-  const gigs = (bytes / 1073741824).toFixed(2); 
+function formatSizeUnits(bytes){
+  if      (bytes >= 1073741824) { bytes = (bytes / 1073741824).toFixed(2) + " GB"; }
+  else if (bytes >= 1048576)    { bytes = (bytes / 1048576).toFixed(2) + " MB"; }
+  else if (bytes >= 1024)       { bytes = (bytes / 1024).toFixed(2) + " KB"; }
+  else if (bytes > 1)           { bytes = bytes + " bytes"; }
+  else if (bytes == 1)          { bytes = bytes + " byte"; }
+  else                          { bytes = "0 bytes"; }
+  return bytes;
 }
     
  const cpu = await si.cpu();
@@ -19,7 +25,7 @@ function bytesTogGigaBytes(bytes) {
     .addField("CPU", `${cpu.manufacturer} ${cpu.brand} ${cpu.speed}GHz\n`)
     .addField("Cores", `${cpu.cores} (${cpu.physicalCores} Physical)\n`)
     .addField("OS", `${os.distro} ${os.codename} (${os.platform})\n`)
-    .addField("RAM", `Total: ${bytesToGigabytes(totalRam.total)} GB\nFree: ${bytesToGigabytes(freeRam.free)} GB\nUsed: ${bytesToGigabytes(usedRam.used)} GB`)
+    .addField("RAM", `Total: ${formatSizeUnits(totalRam.total)}\nFree: ${formatSizeUnits(freeRam.free)}\nUsed: ${formatSizeUnits(usedRam.used)}`)
     .addField("Kernel", `${os.kernel} ${os.arch}\n`)
     .addField("Bot", +client.commands.size +" commands \n" +client.users.cache.size +" users | \n" +client.guilds.cache.size +" guilds | \n" +client.channels.cache.size +" channels")
     .addField("Version", `Node: v${versions.node}\n Discord.JS: v${Discord.version}`)
