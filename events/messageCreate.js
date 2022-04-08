@@ -1,5 +1,5 @@
 const Discord = require("discord.js"),
-  cooldowns = new Discord.Collection(), db = require("@replit/database");
+  cooldowns = new Discord.Collection()
 
 const db_client = new db();
 module.exports = async (client, message) => {
