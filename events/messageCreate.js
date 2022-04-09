@@ -1,7 +1,6 @@
 const Discord = require("discord.js"),
   cooldowns = new Discord.Collection()
 
-const db_client = new db();
 module.exports = async (client, message) => {
   let prefix = client.config.prefix;
   if (message.author.bot || message.channel.type === "dm" || !message.content.toLowerCase().startsWith(prefix)) return;
