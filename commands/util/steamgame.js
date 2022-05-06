@@ -7,7 +7,7 @@ exports.run = async (client, message, args) => {
   if(param != "name" && param != "id") return message.channel.send("Invalid parameter");
   // Search a game by name
   if ((param === "name")) {
-    if (!steamgame) return message.channel.send("Please provide a game name/id!");
+    if (!steamgame) return message.channel.send("Please provide a game name");
     sgb.searchByName(steamgame, (err, data) => {
       if (err) return message.channel.send(err); // If the game isn't found or you didn't add a string
       if (data == null)
@@ -34,7 +34,7 @@ exports.run = async (client, message, args) => {
     });
   } 
   if ((param === "id")) {
-    if (!steamgame) return message.channel.send("Please provide a game name/id!");
+    if (!steamgame) return message.channel.send("Please provide a game id!");
     sgb.searchById(steamgame, (err, data) => {
       if (err) return message.channel.send(err); // If the game isn't found or you didn't add a string
       if (data == null)
