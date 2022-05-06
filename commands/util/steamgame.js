@@ -4,8 +4,6 @@ const Discord = require("discord.js");
 exports.run = async (client, message, args) => {
   let param = args[0];
   let steamgame = message.content.split(" ").slice(2).join(" ");
-  console.log(steamgame);
-  console.log(param);
   if(param != "name" && param != "id") return message.channel.send("Invalid parameter");
   // Search a game by name
   if ((param === "name")) {
