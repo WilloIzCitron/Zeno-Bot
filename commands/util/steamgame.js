@@ -27,7 +27,7 @@ exports.run = async (client, message, args) => {
                 data.price_overview.final_formatted +
                 "](https://store.steampowered.com/app/" +
                 data.steam_appid +
-                ") ") + data.price_overview.discount_percent === 0 ? "" : `(${data.price_overview.discount_percent}% off)`,
+                ") ") + (data.price_overview.discount_percent === 0 ? "" : `(${data.price_overview.discount_percent}% off)`),
           true
         );
       message.channel.send({ embeds: [embed] });
@@ -54,7 +54,7 @@ exports.run = async (client, message, args) => {
               data.price_overview.final_formatted +
               "](https://store.steampowered.com/app/" +
               data.steam_appid +
-              ") ") + data.price_overview.discount_percent === 0 ? "" : `(${data.price_overview.discount_percent}% off)`,
+              ") ") + (data.price_overview.discount_percent === 0 ? "" : `(${data.price_overview.discount_percent}% off)`),
         true
       );
       message.channel.send({ embeds: [embed] });
