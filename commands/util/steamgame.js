@@ -19,17 +19,17 @@ exports.run = async (client, message, args) => {
         .setImage(data.header_image)
         .addField("Developer", data.developers[0], true)
         .addField("Publisher", data.publishers[0], true);
-      embed.addField(
-        "Price",
-        data.is_free
-          ? `[Free](https://store.steampowered.com/app/${data.steam_appid})`
-          : "[" +
-              data.price_overview.final_formatted +
-              "](https://store.steampowered.com/app/" +
-              data.steam_appid +
-              ")",
-        true
-      );
+        embed.addField(
+          "Price",
+          data.is_free
+            ? `[Free](https://store.steampowered.com/app/${data.steam_appid})`
+            : "[" +
+                data.price_overview.final_formatted +
+                "](https://store.steampowered.com/app/" +
+                data.steam_appid +
+                ")" + data.discount_percent === 0 ? "" : `(${data.discount_percent}% off)`,
+          true
+        );
       message.channel.send({ embeds: [embed] });
     });
   } 
@@ -54,7 +54,7 @@ exports.run = async (client, message, args) => {
               data.price_overview.final_formatted +
               "](https://store.steampowered.com/app/" +
               data.steam_appid +
-              ")",
+              ")" + data.discount_percent === 0 ? "" : `(${data.discount_percent}% off)`,
         true
       );
       message.channel.send({ embeds: [embed] });
