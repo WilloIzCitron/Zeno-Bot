@@ -17,7 +17,7 @@ exports.run = async (client, message, args) => {
     const query = args[0]
 
     const msg = await message.channel.send({embeds: [loadingEmbed]})
-    const api = () => fetch(`https://api.mioun.xyz/api/trakteer?name=${query}`).then(res =>res.json())
+    const api = () => fetch(`https://mioun-api-production-c4f3.up.railway.app/api/trakteer?name=${query}`).then(res =>res.json())
     const body = await api();
 
     
