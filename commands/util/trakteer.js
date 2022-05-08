@@ -6,6 +6,7 @@ const Discord = require("discord.js")
 exports.run = async (client, message, args) => {
     const loadingEmbed = new Discord.MessageEmbed()
     .setTitle("Loading...")
+    .setDescription("If still loading, the api is down/unavailable")
 
     const errorEmbed = new Discord.MessageEmbed()
     .setTitle("404 Not Found")
