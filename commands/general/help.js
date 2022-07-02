@@ -23,7 +23,7 @@ exports.run = async (client, message, args) => {
       .setDescription(
         `Using \`${prefix}help [command]\` to get more specific information about a command.`
       )
-      .setAuthor(`${client.user.tag} Help`, client.user.avatarURL());
+      .EmbedAuthorData(`${client.user.tag} Help`, client.user.avatarURL());
     for (const mod of module)
       embed.addField(`${mod.name}`, mod.cmds.map(x => `\`${x}\``).join(" , "));
 

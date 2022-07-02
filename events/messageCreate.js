@@ -3,7 +3,8 @@ const Discord = require("discord.js"),
 
 module.exports = async (client, message) => {
   let prefix = client.config.prefix;
-  if (message.author.bot || message.channel.type === "dm" || !message.content.toLowerCase().startsWith(prefix)) return;
+  if (message.author.bot || !message.content.toLowerCase().startsWith(prefix)) return;
+  if (message.channel.type === "dm" && !client.config.developers.includes(message.author.id)) return;
   if (message.content.includes("@here") || message.content.includes("@everyone") || message.type == "REPLY") return;
   if (message.mentions.has(client.user.id)){
     message.channel.send(
@@ -72,6 +73,10 @@ module.exports = async (client, message) => {
   } catch (error) {
     console.log(error.message);
   } finally {
+    if (message.type === "dm" && client.config.developers.includes(message.author.id)){
+      console.log(`${a.tag} (${a.id}) using a command: ${cmd} on DM`);
+    } else {
     console.log(`${a.tag} (${a.id}) using a command: ${cmd} on ${message.guild.name} (${message.guild.id})`);
+    }
   }
 };
