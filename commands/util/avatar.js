@@ -2,8 +2,9 @@ const Discord = require('discord.js');
 
 exports.run = async (client, message, args) => {
 
-    //mention, id or either AUTHOR
-    let user = message.mentions.users.first() || message.guild.members.cache.get(message.content.split(" ").slice(1).join(" ")) || message.author;
+    //mention, id(actually deleted nerd) or either AUTHOR
+    let user = message.mentions.users.first();
+    if (!user) return user = message.author;
     const embed = new Discord.MessageEmbed();
     // accent color is black
     embed.setColor(0x000000);
@@ -18,7 +19,7 @@ exports.run = async (client, message, args) => {
     embed.setTimestamp();
 
     //S  E  N  D    I  T
-    message.channel.send({embeds: embed});
+    message.channel.send({embeds: [embed]});
   
 }
 
