@@ -1,3 +1,5 @@
+const Discord = require('discord.js');
+
 exports.run = async (client, message, args) => {
 
     //mention, id or either AUTHOR
