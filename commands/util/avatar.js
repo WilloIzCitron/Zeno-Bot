@@ -19,7 +19,7 @@ exports.run = async (client, message, args) => {
     embed.setFooter(`Requested by ${message.author.username}`, message.author.displayAvatarURL({ format: "png", dynamic: true, size: 1024 }));
 
     //S  E  N  D    I  T
-    message.channel.send(embed);
+    message.channel.send({embeds: embed});
   
 }
 
