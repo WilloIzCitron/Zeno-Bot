@@ -14,9 +14,8 @@ exports.run = async (client, message, args) => {
     // fetch a avatar from someone
     embed.setImage(user.displayAvatarURL({ format: "png", dynamic: true, size: 1024 }));
 
-    // TIMESTAMPS AND WHO RUN IT
+    // TIMESTAMPS
     embed.setTimestamp();
-    embed.setFooter(`Requested by ${message.author.username}`, message.author.displayAvatarURL({ format: "png", dynamic: true, size: 1024 }));
 
     //S  E  N  D    I  T
     message.channel.send({embeds: embed});
