@@ -29,7 +29,7 @@ function formatSizeUnits(bytes){
     .addField("Kernel", `${os.kernel} ${os.arch}\n`)
     .addField("Bot", +client.commands.size +" commands \n" +client.users.cache.size +" users | \n" +client.guilds.cache.size +" guilds | \n" +client.channels.cache.size +" channels")
     .addField("Version", `Node: v${versions.node}\n Discord.JS: v${Discord.version}`)
-    .addField("Owner", client.users.cache.find(x => x.id === client.config.developers.toString()).tag)
+    .addField("Owner", client.users.cache.find(x => x.id === client.config.developers.toString()).tag);
     message.channel.send({ embeds: [embed] })
   
 }

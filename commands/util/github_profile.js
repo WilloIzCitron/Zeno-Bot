@@ -1,10 +1,7 @@
 const fetch = require('node-fetch')
 const Discord = require("discord.js")
-const Database = require("@replit/database")
-const db = new Database()
 
 exports.run = async (client, message, args) => {
-    let linked = await db.get(`github_${message.author.id}`)
     let arg = args[0]
     if (!arg) return message.reply("don\'t must be empty")
     const api = () => fetch(`https://api.github.com/users/${arg}`).then(res => res.json());
@@ -14,7 +11,7 @@ exports.run = async (client, message, args) => {
     .setTitle(result.login)
     .setDescription(`${result.bio ? result.bio : "no bio provided"}`)
     .setColor("RANDOM")
-    .setImage(`https://github-profile-trophy.vercel.app/?username=${result.login}`)
+    //.setImage(`https://github-profile-trophy.vercel.app/?username=${result.login}`) currently not working
     .setURL(result.html_url)
     .setThumbnail(result.avatar_url)
     .addField("General Info", `Name: ${result.name || "No name provided."}\nType: ${result.type} \nLocation: ${result.location || "no location provided"}\nCompany: ${result.company || "no company provided"}\nTwitter Username: ${result.twitter_username || "no Twitter Username provided"}`)
