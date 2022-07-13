@@ -73,10 +73,6 @@ module.exports = async (client, message) => {
   } catch (error) {
     console.log(error.message);
   } finally {
-    if (message.type === "dm" && client.config.developers.includes(message.author.id)){
-      console.log(`${a.tag} (${a.id}) using a command: ${cmd} on DM`);
-    } else {
     console.log(`${a.tag} (${a.id}) using a command: ${cmd} on ${message.guild.name} (${message.guild.id})`);
     }
-  }
-};
+ };
