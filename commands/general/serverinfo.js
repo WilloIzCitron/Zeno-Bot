@@ -23,8 +23,6 @@ const embed = new Discord.MessageEmbed()
 .setFooter(`ID: ${server.id}`);
 //sending a embed use {embeds: [embed]} damn djs v13
 message.channel.send({ embeds: [embed] });
-
-
   
 }
 
