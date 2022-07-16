@@ -3,7 +3,7 @@ const Canvas = require("canvas");
 
 exports.run = async (client, message, args) => {
     let target = message.mentions.users.first() || message.author;
-    let levels = args[0] || 360;
+    let levels = args[1] || 360;
     if (levels < 360) return message.channel.send('it must be greater than 360');
     if (level < 10000) return message.channel.send(`\"zamn, you make it crash!\" \n- WilloIzCitron`)
     const canvas = Canvas.createCanvas(Number(levels), 240)
