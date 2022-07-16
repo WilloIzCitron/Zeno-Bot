@@ -5,7 +5,7 @@ exports.run = async (client, message, args) => {
     let target = message.mentions.users.first();
     let levels = args[1] || 360;
     if (levels < 360) return message.channel.send('it must be greater than 360');
-    if (levels < 10000) return message.channel.send(`\"zamn, you make it crash!\" \n- WilloIzCitron`)
+    if (levels < 10000) return message.channel.send(`\"zamn, you make it crash!\" \n- WilloIzCitron`);
     const canvas = Canvas.createCanvas(Number(levels), 240)
     const ctx = canvas.getContext("2d");
     const background = await Canvas.loadImage(target.displayAvatarURL({ format: "png" }))
